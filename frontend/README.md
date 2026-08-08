@@ -1,15 +1,20 @@
-# AI Travel Planner - Frontend
+# ✈️ AroundTheWorld — Frontend
 
-This is the frontend application for the **AI Travel Planner**, a smart travel assistant that generates personalized travel itineraries, parses natural language queries, and provides hotel suggestions and weather forecasts.
+This is the frontend application for **AroundTheWorld**, a smart travel assistant that guides you through a few questions and then generates a complete day-by-day itinerary — with Google-Maps-style road routing, smart budgets in any currency, travel essentials, and per-country guides.
 
 ## 🚀 Features
 
-- **Interactive Maps:** View your travel destinations and itineraries on interactive maps powered by `Leaflet` and `React-Leaflet`.
-- **Dynamic Animations:** Smooth transitions and beautiful micro-animations using `Framer Motion`.
-- **Modern UI/UX:** Fully responsive and premium design styled with `Tailwind CSS`.
-- **Data Visualization:** Charts and visual representations of travel data using `Recharts`.
-- **State Management:** Efficient client-side state management with `Zustand`.
-- **AI-Powered:** Connects to the FastAPI backend to parse natural language queries and generate detailed travel plans.
+- **Animated Welcome Page:** A branded landing page explaining the app, with a single click to sign in and start planning.
+- **Guided Trip Wizard:** Answer destination, dates, travelers, budget and interests one question at a time — no typing required.
+- **Interactive Maps:** Google-Maps-style lettered waypoints (A → B → C) with real road routing powered by Leaflet & React-Leaflet; the map re-routes automatically after every edit.
+- **Chat Trip Editor:** After the itinerary is built, the chatbot becomes an editor — swap/add places, change budget, currency, dates or destination, and everything recalculates instantly.
+- **Budget Intelligence:** Overall / per-day / per-person budgets, cost allocations, comfort score and suggested budget, all converted to any ISO 4217 currency.
+- **Travel Essentials:** One-tap links to hotels, Airbnbs, rental cars, rides, flights, hostels, insurance, restaurants, eSIMs, tours and visa services, pre-filled for the destination.
+- **Country Guides:** Detailed per-country essentials — customs, safety, visas, currency, food, transport, emergency numbers and more.
+- **Dynamic Animations:** Smooth transitions and micro-animations using Framer Motion.
+- **Modern UI/UX:** Fully responsive, premium design styled with Tailwind CSS.
+- **Data Visualization:** Charts and visual representations of travel data using Recharts.
+- **State Management:** Efficient client-side state management with Zustand.
 
 ## 🛠️ Tech Stack
 
@@ -27,6 +32,7 @@ This is the frontend application for the **AI Travel Planner**, a smart travel a
 
 - Node.js (v18 or higher recommended)
 - npm or yarn
+- The FastAPI backend + local LLM (Ollama) — see the root README. The simplest path is to run `npm start` from the project root, which launches everything (Ollama → backend → frontend).
 
 ### Installation
 
@@ -62,4 +68,4 @@ npm run preview
 
 ## 🔗 Backend Integration
 
-This frontend is designed to work with the AI Travel Planner FastAPI backend. Ensure the backend server is running (typically on `http://127.0.0.1:8000`) so that API calls (e.g., `/api/plan`, `/api/parse`, `/chat`) function correctly.
+This frontend is designed to work with the AroundTheWorld FastAPI backend (typically on `http://127.0.0.1:8001`). Ensure the backend server and the local LLM (Ollama, `http://localhost:11434`) are running so API calls (e.g., `/api/plan`, `/api/parse`, `/chat`) function correctly.
