@@ -110,7 +110,7 @@ function ChatPanel({ onAction }) {
           textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" // Subtle text shadow
         }}
       >
-        ✈️ AI Travel Assistant
+        ✈️ AroundTheWorld 🌎
       </h2>
 
       {/* CHAT WINDOW */}

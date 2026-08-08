@@ -22,5 +22,5 @@ export async function deleteTrip(tripid: number): Promise<void> {
 
 export function getExportPdfUrl(tripid: number): string {
   const token = localStorage.getItem("token") || "";
-  return `http://127.0.0.1:8001/api/trips/${tripid}/export/pdf?token=${encodeURIComponent(token)}`;
+  return `/api/trips/${tripid}/export/pdf?token=${encodeURIComponent(token)}`;
 }

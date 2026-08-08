@@ -1,11 +1,16 @@
 import json
+import logging
 from typing import Dict, Any, List
+
+logger = logging.getLogger("trip_planning_agent")
 from ..ai.ollamaclient import OllamaClient
 from ..ai.promptregistry import PROMPTS
-from ..services.itinerary.generator import generate_itinerary
+from ..ai.structuredparser import merge_entities_safely
+from ..services.itinerary.generator import generate_itinerary, ItineraryGenerator
 from ..services.routeoptimizer.optimizer import RouteOptimizer
 from ..services.budget.budgetscorer import BudgetScorer
 from ..services.weather.weatherservice import WeatherService
+from ..services.maps.routing import RoutingService
 
 REQUIREDTRIPFIELDS = [
     "destination",
@@ -19,6 +24,18 @@ REQUIREDTRIPFIELDS = [
     "interests"
 ]
 
+FRIENDLY_FIELD_LABELS = {
+    "destination": "the destination (e.g. Paris)",
+    "country": "the country (e.g. France)",
+    "startdate": "the start date (YYYY-MM-DD)",
+    "enddate": "the end date (YYYY-MM-DD)",
+    "travelercount": "how many travelers (e.g. 2)",
+    "travelertype": "the trip type (solo, couple, family, group)",
+    "budget": "your budget (e.g. 2000)",
+    "currency": "the currency (USD, EUR, GBP, INR...)",
+    "interests": "your interests (e.g. food, art, nature, history)"
+}
+
 class TripPlanningAgent:
     @staticmethod
     def get_missing_fields(entities: Dict[str, Any]) -> List[str]:
@@ -30,40 +47,38 @@ class TripPlanningAgent:
         return missing
 
     @staticmethod
+    def _build_single_shot_question(missing: List[str], entities: Dict[str, Any]) -> str:
+        """Deterministic question asking for ALL missing details in one message."""
+        known = {k: v for k, v in entities.items() if v not in (None, "", [])}
+        known_str = ", ".join([f"{k}: {v}" for k, v in known.items()]) or "nothing yet"
+        lines = "\n".join([f"• {FRIENDLY_FIELD_LABELS.get(f, f)} -- currently missing" for f in missing])
+        return (
+            f"Awesome, I have {known_str}. To craft your perfect itinerary I just need a few more "
+            f"details — please share them all in one message:\n\n{lines}\n\n"
+            f"Tip: reply like this — '2 travelers, couple, 2000 USD, from 2026-09-01 to 2026-09-05, "
+            f"love food and art'. 😊"
+        )
+
+    @staticmethod
     async def handle_conversation(session_state: Dict[str, Any], new_entities: Dict[str, Any], message: str) -> Dict[str, Any]:
         if "entities" not in session_state:
             session_state["entities"] = {f: None for f in REQUIREDTRIPFIELDS}
             session_state["entities"]["interests"] = []
 
-        # Merge and support corrections
-        for k, v in new_entities.items():
-            if v is not None and v != "" and v != []:
-                session_state["entities"][k] = v
+        # Merge and support corrections — but NEVER clobber a field the user did
+        # not mention this turn. This is what keeps a chosen currency locked
+        # (e.g. INR) instead of silently falling back to the parser's USD default.
+        session_state["entities"] = merge_entities_safely(
+            session_state["entities"],
+            new_entities,
+            message
+        )
 
         # Missing required details
         missing = TripPlanningAgent.get_missing_fields(session_state["entities"])
         
         if missing:
-            field_to_ask = missing[0]
-            question_prompt = PROMPTS["followupquestion"].format(
-                missing_fields=missing,
-                current_state=json.dumps(session_state["entities"])
-            )
-            question = OllamaClient.call_ollama(question_prompt)
-            if not question:
-                friendly_names = {
-                    "destination": "Where would you like to travel to?",
-                    "country": "Which country is that destination located in?",
-                    "startdate": "When do you plan to start your trip? (format YYYY-MM-DD)",
-                    "enddate": "When will your trip end? (format YYYY-MM-DD)",
-                    "travelercount": "How many travelers will be going?",
-                    "travelertype": "What type of trip is it? (solo, couple, family, group)",
-                    "budget": "What is your budget for the trip?",
-                    "currency": "Which currency will you use? (USD, EUR, GBP, etc.)",
-                    "interests": "What are your interests? (e.g. food, art, nature, history, relaxation)"
-                }
-                question = friendly_names.get(field_to_ask, f"Could you provide your {field_to_ask}?")
-
+            question = TripPlanningAgent._build_single_shot_question(missing, session_state["entities"])
             return {
                 "status": "needsmoreinfo",
                 "missingfields": missing,
@@ -104,11 +119,18 @@ class TripPlanningAgent:
             traveler_type=traveler_type
         )
 
-        # 2. Heuristically Optimize Routes per day
+        # 2. Heuristically Optimize Routes per day (real coordinates)
         for day in raw_itinerary.get("days", []):
             activities = day.get("activities", [])
             day["activities"] = RouteOptimizer.optimize(activities)
             day["route"] = [{"lat": act["coordinates"]["lat"], "lng": act["coordinates"]["lng"], "label": act["name"]} for act in day["activities"]]
+            total_distance = sum([float(act.get("traveltonext", {}).get("distancekm", 0.0) or 0.0) for act in day["activities"]])
+            day["route_distance_km"] = round(total_distance, 2)
+            # 2b. Real road routing (Google-Maps-style) — road geometry + accurate legs
+            try:
+                day = await RoutingService.enrich_day_route(day)
+            except Exception as e:
+                logger.warning(f"OSRM enrichment failed for day {day.get('day')}: {e}")
 
         # 3. Budget Scoring
         days_count = len(raw_itinerary.get("days", []))
@@ -120,14 +142,16 @@ class TripPlanningAgent:
             destination=destination
         )
 
-        # 4. Attach Weather
-        lat, lng = destination_lat_lon_fallback(destination)
+        # 4. Attach Weather using REAL destination coordinates
+        lat, lng = await ItineraryGenerator._get_destination_coords(destination)
+        if lat is None:
+            lat, lng = 0.0, 0.0
         for day in raw_itinerary.get("days", []):
             day_date = day.get("date")
             day["weather"] = await WeatherService.get_weather_for_date(destination, lat, lng, day_date)
 
         route_summary = {
-            "total_distance_km": sum([day.get("route_distance_km", 0.0) for day in raw_itinerary.get("days", [])]),
+            "total_distance_km": round(sum([day.get("route_distance_km", 0.0) for day in raw_itinerary.get("days", [])]), 2),
             "optimized": True,
             "routing_method": "Heuristic nearest-neighbor with time windows"
         }
@@ -137,13 +161,3 @@ class TripPlanningAgent:
             "budget_info": budget_info,
             "route_summary": route_summary
         }
-
-def destination_lat_lon_fallback(destination: str):
-    import hashlib
-    seed_text = f"{destination}|center"
-    seed = int(hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:16], 16)
-    import random
-    rng = random.Random(seed)
-    lat = 20 + rng.random() * 25
-    lon = 60 + rng.random() * 60
-    return float(lat), float(lon)

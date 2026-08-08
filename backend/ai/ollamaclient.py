@@ -17,7 +17,8 @@ class OllamaClient:
         payload = {
             "model": settings.OLLAMA_MODEL,
             "prompt": prompt,
-            "stream": False
+            "stream": False,
+            "think": False,  # qwen3 outputs thinking tokens by default; disable for clean JSON
         }
         
         try:

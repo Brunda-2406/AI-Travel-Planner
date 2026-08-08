@@ -11,10 +11,17 @@ export const usePlanning = () => {
     tripData: store.tripData,
     loading: store.loading,
     error: store.error,
+    recommendations: store.recommendations,
+    recommendationsLoading: store.recommendationsLoading,
     sendMessage: store.sendMessage,
     editTrip: store.editTrip,
     updateDayActivities: store.updateDayActivities,
     setTripData: store.setTripData,
-    resetPlanning: store.resetPlanning
+    resetPlanning: store.resetPlanning,
+    fetchRecommendations: store.fetchRecommendations,
+    addPlace: store.addPlace,
+    lockedCurrency: store.lockedCurrency,
+    lockCurrency: store.lockCurrency,
+    planTrip: store.planTrip
   };
 };

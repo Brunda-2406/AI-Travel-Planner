@@ -1,0 +1,272 @@
+{
+  "Rome": [
+    {"name": "Colosseum", "lat": 41.8902, "lon": 12.4922, "category": "sightseeing", "description": "Ancient Roman amphitheater and one of the New Seven Wonders."},
+    {"name": "Vatican Museums", "lat": 41.9065, "lon": 12.4537, "category": "museum", "description": "Home to the Sistine Chapel and Renaissance masterpieces."},
+    {"name": "Trevi Fountain", "lat": 41.9009, "lon": 12.4833, "category": "sightseeing", "description": "Baroque fountain and the tradition of tossing a coin."},
+    {"name": "Pantheon", "lat": 41.8986, "lon": 12.4769, "category": "sightseeing", "description": "Ancient temple with the largest unreinforced concrete dome."},
+    {"name": "Spanish Steps", "lat": 41.9060, "lon": 12.4824, "category": "sightseeing", "description": "Iconic 135-step staircase in the heart of Rome."},
+    {"name": "Roman Forum", "lat": 41.8925, "lon": 12.4853, "category": "sightseeing", "description": "The political and social heart of ancient Rome."},
+    {"name": "Piazza Navona", "lat": 41.8992, "lon": 12.4731, "category": "sightseeing", "description": "Elegant square with Bernini's Fountain of the Four Rivers."},
+    {"name": "Trastevere", "lat": 41.8895, "lon": 12.4694, "category": "food_experience", "description": "Lively neighborhood famous for authentic Roman dining."}
+  ],
+  "Barcelona": [
+    {"name": "Sagrada Familia", "lat": 41.4036, "lon": 2.1744, "category": "sightseeing", "description": "Gaudí's unfinished basilica masterpiece."},
+    {"name": "Park Güell", "lat": 41.4145, "lon": 2.1527, "category": "park", "description": "Colorful mosaic park designed by Gaudí."},
+    {"name": "Casa Batlló", "lat": 41.3917, "lon": 2.1652, "category": "sightseeing", "description": "Gaudí's fantastical modernist building on Passeig de Gràcia."},
+    {"name": "La Rambla", "lat": 41.3818, "lon": 2.1734, "category": "shopping", "description": "Famous tree-lined boulevard through the old city."},
+    {"name": "Gothic Quarter", "lat": 41.3834, "lon": 2.1770, "category": "sightseeing", "description": "Medieval labyrinth of narrow streets and plazas."},
+    {"name": "Camp Nou", "lat": 41.3809, "lon": 2.1228, "category": "sightseeing", "description": "Home stadium of FC Barcelona."},
+    {"name": "Picasso Museum", "lat": 41.3852, "lon": 2.1804, "category": "museum", "description": "Extensive collection of Picasso's early works."},
+    {"name": "Montjuïc Hill", "lat": 41.3646, "lon": 2.1502, "category": "park", "description": "Hilltop park with castle views over the harbor."}
+  ],
+  "Madrid": [
+    {"name": "Prado Museum", "lat": 40.4138, "lon": -3.6921, "category": "museum", "description": "One of the world's greatest art museums."},
+    {"name": "Royal Palace", "lat": 40.4180, "lon": -3.7142, "category": "sightseeing", "description": "Official residence of the Spanish royal family."},
+    {"name": "Retiro Park", "lat": 40.4153, "lon": -3.6840, "category": "park", "description": "Sprawling green park with boating lake and monuments."},
+    {"name": "Puerta del Sol", "lat": 40.4169, "lon": -3.7035, "category": "sightseeing", "description": "Bustling central square and kilometer zero of Spain."},
+    {"name": "Plaza Mayor", "lat": 40.4154, "lon": -3.7074, "category": "sightseeing", "description": "Grand arcaded square built in the 17th century."},
+    {"name": "Reina Sofía Museum", "lat": 40.4084, "lon": -3.6944, "category": "museum", "description": "Home to Picasso's Guernica."},
+    {"name": "Mercado de San Miguel", "lat": 40.4156, "lon": -3.7087, "category": "food_experience", "description": "Historic market hall with Spanish tapas."},
+    {"name": "Gran Vía", "lat": 40.4203, "lon": -3.7058, "category": "shopping", "description": "Madrid's famous shopping and theater avenue."}
+  ],
+  "Amsterdam": [
+    {"name": "Rijksmuseum", "lat": 52.3600, "lon": 4.8852, "category": "museum", "description": "Dutch national museum with Rembrandt's Night Watch."},
+    {"name": "Van Gogh Museum", "lat": 52.3584, "lon": 4.8811, "category": "museum", "description": "The world's largest Van Gogh collection."},
+    {"name": "Anne Frank House", "lat": 52.3752, "lon": 4.8840, "category": "museum", "description": "The canal house where Anne Frank hid."},
+    {"name": "Dam Square", "lat": 52.3731, "lon": 4.8926, "category": "sightseeing", "description": "Historic central square with the Royal Palace."},
+    {"name": "Vondelpark", "lat": 52.3579, "lon": 4.8680, "category": "park", "description": "Amsterdam's most popular city park."},
+    {"name": "Jordaan", "lat": 52.3755, "lon": 4.8791, "category": "sightseeing", "description": "Charming neighborhood of canals, galleries and cafes."},
+    {"name": "Canal Ring", "lat": 52.3676, "lon": 4.9041, "category": "sightseeing", "description": "UNESCO-listed 17th-century canal district."},
+    {"name": "Albert Cuyp Market", "lat": 52.3562, "lon": 4.8915, "category": "shopping", "description": "The largest street market in Europe."}
+  ],
+  "Berlin": [
+    {"name": "Brandenburg Gate", "lat": 52.5163, "lon": 13.3777, "category": "sightseeing", "description": "Berlin's iconic neoclassical landmark."},
+    {"name": "Reichstag Building", "lat": 52.5186, "lon": 13.3762, "category": "sightseeing", "description": "German parliament with a glass dome you can visit."},
+    {"name": "Berlin Wall Memorial", "lat": 52.5355, "lon": 13.3903, "category": "sightseeing", "description": "Preserved section of the Berlin Wall with exhibits."},
+    {"name": "Museum Island", "lat": 52.5163, "lon": 13.3995, "category": "museum", "description": "UNESCO-listed cluster of five world-class museums."},
+    {"name": "Checkpoint Charlie", "lat": 52.5076, "lon": 13.3904, "category": "sightseeing", "description": "Famous Cold War border crossing."},
+    {"name": "East Side Gallery", "lat": 52.5044, "lon": 13.4400, "category": "sightseeing", "description": "Open-air gallery on a stretch of the Berlin Wall."},
+    {"name": "TV Tower", "lat": 52.5208, "lon": 13.4095, "category": "sightseeing", "description": "Iconic tower with panoramic views over Berlin."},
+    {"name": "Tiergarten", "lat": 52.5145, "lon": 13.3501, "category": "park", "description": "Berlin's large central city park."}
+  ],
+  "Vienna": [
+    {"name": "Schönbrunn Palace", "lat": 48.1850, "lon": 16.3122, "category": "sightseeing", "description": "Habsburg summer palace with grand gardens."},
+    {"name": "St. Stephen's Cathedral", "lat": 48.2085, "lon": 16.3731, "category": "sightseeing", "description": "Gothic cathedral at the heart of Vienna."},
+    {"name": "Hofburg Palace", "lat": 48.2066, "lon": 16.3652, "category": "sightseeing", "description": "Imperial palace of the Habsburgs."},
+    {"name": "Belvedere Palace", "lat": 48.1915, "lon": 16.3805, "category": "museum", "description": "Baroque palace housing Klimt's The Kiss."},
+    {"name": "Vienna State Opera", "lat": 48.2027, "lon": 16.3688, "category": "sightseeing", "description": "One of the world's leading opera houses."},
+    {"name": "Prater", "lat": 48.2166, "lon": 16.3966, "category": "park", "description": "Public park with the famous Riesenrad ferris wheel."},
+    {"name": "Naschmarkt", "lat": 48.1943, "lon": 16.3624, "category": "food_experience", "description": "Vienna's most famous open-air market."},
+    {"name": "Kunsthistorisches Museum", "lat": 48.2038, "lon": 16.3619, "category": "museum", "description": "World-class art history museum."}
+  ],
+  "Lisbon": [
+    {"name": "Belém Tower", "lat": 38.6916, "lon": -9.2159, "category": "sightseeing", "description": "16th-century fortified tower on the Tagus river."},
+    {"name": "Jerónimos Monastery", "lat": 38.6976, "lon": -9.2067, "category": "sightseeing", "description": "Stunning Manueline-style monastery."},
+    {"name": "São Jorge Castle", "lat": 38.7129, "lon": -9.1335, "category": "sightseeing", "description": "Hilltop Moorish castle with city views."},
+    {"name": "Alfama", "lat": 38.7102, "lon": -9.1294, "category": "sightseeing", "description": "Oldest district, full of winding alleys and fado music."},
+    {"name": "Praça do Comércio", "lat": 38.7079, "lon": -9.1364, "category": "sightseeing", "description": "Grand riverside square."},
+    {"name": "Time Out Market", "lat": 38.7071, "lon": -9.1464, "category": "food_experience", "description": "Food hall with top Portuguese chefs."},
+    {"name": "LX Factory", "lat": 38.7034, "lon": -9.1829, "category": "shopping", "description": "Creative hub in a converted factory complex."},
+    {"name": "Tram 28 Route", "lat": 38.7140, "lon": -9.1290, "category": "sightseeing", "description": "Iconic yellow tram winding through historic quarters."}
+  ],
+  "Athens": [
+    {"name": "Acropolis", "lat": 37.9715, "lon": 23.7267, "category": "sightseeing", "description": "Ancient citadel with the Parthenon."},
+    {"name": "Acropolis Museum", "lat": 37.9684, "lon": 23.7284, "category": "museum", "description": "Modern museum displaying Acropolis artifacts."},
+    {"name": "Plaka", "lat": 37.9722, "lon": 23.7295, "category": "sightseeing", "description": "Charming old neighborhood at the foot of the Acropolis."},
+    {"name": "Syntagma Square", "lat": 37.9755, "lon": 23.7345, "category": "sightseeing", "description": "Central square with the Parliament building."},
+    {"name": "Temple of Olympian Zeus", "lat": 37.9694, "lon": 23.7332, "category": "sightseeing", "description": "Ruins of a colossal ancient temple."},
+    {"name": "Monastiraki", "lat": 37.9762, "lon": 23.7256, "category": "shopping", "description": "Lively flea market and square."},
+    {"name": "Lycabettus Hill", "lat": 37.9818, "lon": 23.7432, "category": "park", "description": "Highest hill with panoramic views of Athens."},
+    {"name": "National Archaeological Museum", "lat": 37.9892, "lon": 23.7326, "category": "museum", "description": "Greece's largest archaeological museum."}
+  ],
+  "Venice": [
+    {"name": "St. Mark's Square", "lat": 45.4340, "lon": 12.3388, "category": "sightseeing", "description": "The grand central square of Venice."},
+    {"name": "St. Mark's Basilica", "lat": 45.4346, "lon": 12.3398, "category": "sightseeing", "description": "Byzantine cathedral covered in golden mosaics."},
+    {"name": "Doge's Palace", "lat": 45.4339, "lon": 12.3404, "category": "sightseeing", "description": "Gothic palace of the Venetian rulers."},
+    {"name": "Rialto Bridge", "lat": 45.4381, "lon": 12.3360, "category": "sightseeing", "description": "Famous bridge spanning the Grand Canal."},
+    {"name": "Grand Canal", "lat": 45.4399, "lon": 12.3330, "category": "sightseeing", "description": "Venice's main waterway lined with palaces."},
+    {"name": "Peggy Guggenheim Collection", "lat": 45.4309, "lon": 12.3314, "category": "museum", "description": "Modern art museum on the Grand Canal."},
+    {"name": "Bridge of Sighs", "lat": 45.4337, "lon": 12.3413, "category": "sightseeing", "description": "Enclosed limestone bridge connecting the palace to prison."},
+    {"name": "Burano", "lat": 45.4853, "lon": 12.4175, "category": "sightseeing", "description": "Colorful island famous for lace-making."}
+  ],
+  "Bali": [
+    {"name": "Uluwatu Temple", "lat": -8.8291, "lon": 115.0849, "category": "sightseeing", "description": "Clifftop sea temple with sunset kecak dance."},
+    {"name": "Tanah Lot", "lat": -8.6214, "lon": 115.0869, "category": "sightseeing", "description": "Iconic temple on a rock in the sea."},
+    {"name": "Tegallalang Rice Terraces", "lat": -8.4320, "lon": 115.2767, "category": "park", "description": "Lush green rice terraces near Ubud."},
+    {"name": "Ubud Monkey Forest", "lat": -8.5185, "lon": 115.2584, "category": "park", "description": "Sacred forest sanctuary full of monkeys."},
+    {"name": "Kuta Beach", "lat": -8.7185, "lon": 115.1686, "category": "beaches", "description": "Popular surfing beach with sunset views."},
+    {"name": "Seminyak", "lat": -8.6915, "lon": 115.1607, "category": "food_experience", "description": "Trendy area with beach clubs and restaurants."},
+    {"name": "Besakih Temple", "lat": -8.3757, "lon": 115.4508, "category": "sightseeing", "description": "The Mother Temple on the slopes of Mount Agung."},
+    {"name": "Nusa Dua", "lat": -8.8000, "lon": 115.2300, "category": "beaches", "description": "Resort enclave with pristine beaches."}
+  ],
+  "Goa": [
+    {"name": "Baga Beach", "lat": 15.5617, "lon": 73.7530, "category": "beaches", "description": "Lively beach with shacks and water sports."},
+    {"name": "Calangute Beach", "lat": 15.5439, "lon": 73.7553, "category": "beaches", "description": "The Queen of Beaches in North Goa."},
+    {"name": "Basilica of Bom Jesus", "lat": 15.5008, "lon": 73.9118, "category": "sightseeing", "description": "UNESCO-listed church housing St. Francis Xavier."},
+    {"name": "Fort Aguada", "lat": 15.4938, "lon": 73.7627, "category": "sightseeing", "description": "17th-century Portuguese fort with lighthouse."},
+    {"name": "Anjuna Beach", "lat": 15.5794, "lon": 73.7377, "category": "beaches", "description": "Bohemian beach famous for its flea market."},
+    {"name": "Dudhsagar Falls", "lat": 15.3144, "lon": 74.3140, "category": "park", "description": "Spectacular four-tiered waterfall on the Goa border."},
+    {"name": "Palolem Beach", "lat": 15.0113, "lon": 74.0218, "category": "beaches", "description": "Picturesque crescent beach in South Goa."},
+    {"name": "Chapora Fort", "lat": 15.6048, "lon": 73.7375, "category": "sightseeing", "description": "Hilltop fort made famous by Bollywood."}
+  ],
+  "Zurich": [
+    {"name": "Bahnhofstrasse", "lat": 47.3747, "lon": 8.5390, "category": "shopping", "description": "One of the world's most exclusive shopping streets."},
+    {"name": "Lake Zurich", "lat": 47.3629, "lon": 8.5482, "category": "park", "description": "Crystal-clear lake with promenades and boat trips."},
+    {"name": "Old Town (Altstadt)", "lat": 47.3715, "lon": 8.5434, "category": "sightseeing", "description": "Medieval quarter with cobbled lanes and guild houses."},
+    {"name": "Grossmünster", "lat": 47.3700, "lon": 8.5445, "category": "sightseeing", "description": "Romanesque cathedral with twin towers."},
+    {"name": "Kunsthaus Zurich", "lat": 47.3708, "lon": 8.5485, "category": "museum", "description": "Switzerland's largest art museum."},
+    {"name": "Lindenhof", "lat": 47.3732, "lon": 8.5408, "category": "sightseeing", "description": "Hilltop square with views over the old town."},
+    {"name": "Swiss National Museum", "lat": 47.3788, "lon": 8.5395, "category": "museum", "description": "Cultural history museum in a fairy-tale castle."},
+    {"name": "Uetliberg", "lat": 47.3499, "lon": 8.4919, "category": "park", "description": "Local mountain with panoramic city and lake views."}
+  ],
+  "Delhi": [
+    {"name": "India Gate", "lat": 28.6129, "lon": 77.2295, "category": "sightseeing", "description": "Iconic war memorial archway."},
+    {"name": "Red Fort", "lat": 28.6562, "lon": 77.2410, "category": "sightseeing", "description": "Massive Mughal-era fort complex."},
+    {"name": "Qutub Minar", "lat": 28.5245, "lon": 77.1855, "category": "sightseeing", "description": "UNESCO-listed 12th-century minaret."},
+    {"name": "Humayun's Tomb", "lat": 28.5933, "lon": 77.2507, "category": "sightseeing", "description": "Garden tomb that inspired the Taj Mahal."},
+    {"name": "Lotus Temple", "lat": 28.5535, "lon": 77.2588, "category": "sightseeing", "description": "Lotus-shaped Bahá'í House of Worship."},
+    {"name": "Chandni Chowk", "lat": 28.6567, "lon": 77.2309, "category": "food_experience", "description": "Bustling old market famous for street food."},
+    {"name": "Hauz Khas", "lat": 28.5549, "lon": 77.1957, "category": "food_experience", "description": "Trendy village with cafes and a historic lake."},
+    {"name": "Connaught Place", "lat": 28.6315, "lon": 77.2167, "category": "shopping", "description": "Georgian-style commercial hub."}
+  ],
+  "Mumbai": [
+    {"name": "Gateway of India", "lat": 18.9220, "lon": 72.8347, "category": "sightseeing", "description": "Triumphal arch on the Mumbai harbor."},
+    {"name": "Marine Drive", "lat": 18.9439, "lon": 72.8235, "category": "sightseeing", "description": "The Queen's Necklace seaside boulevard."},
+    {"name": "Chhatrapati Shivaji Terminus", "lat": 18.9398, "lon": 72.8355, "category": "sightseeing", "description": "UNESCO-listed Victorian railway station."},
+    {"name": "Elephanta Caves", "lat": 18.9633, "lon": 72.9308, "category": "sightseeing", "description": "Ancient rock-cut cave temples on an island."},
+    {"name": "Juhu Beach", "lat": 19.1078, "lon": 72.8263, "category": "beaches", "description": "Famous beach with sunset and street snacks."},
+    {"name": "Haji Ali Dargah", "lat": 18.9827, "lon": 72.8103, "category": "sightseeing", "description": "Shrine on an islet accessible at low tide."},
+    {"name": "Colaba Causeway", "lat": 18.9096, "lon": 72.8287, "category": "shopping", "description": "Street market with quirky finds."},
+    {"name": "Siddhivinayak Temple", "lat": 19.0165, "lon": 72.8300, "category": "sightseeing", "description": "Beloved temple dedicated to Lord Ganesha."}
+  ],
+  "Singapore": [
+    {"name": "Marina Bay Sands", "lat": 1.2834, "lon": 103.8607, "category": "sightseeing", "description": "Iconic resort with rooftop infinity pool."},
+    {"name": "Gardens by the Bay", "lat": 1.2817, "lon": 103.8636, "category": "park", "description": "Futuristic garden with supertree groves."},
+    {"name": "Sentosa Island", "lat": 1.2494, "lon": 103.8303, "category": "beaches", "description": "Resort island with beaches and attractions."},
+    {"name": "Merlion Park", "lat": 1.2868, "lon": 103.8545, "category": "sightseeing", "description": "Home of Singapore's half-lion half-fish symbol."},
+    {"name": "Chinatown", "lat": 1.2820, "lon": 103.8443, "category": "food_experience", "description": "Vibrant district with temples and hawker food."},
+    {"name": "Orchard Road", "lat": 1.3048, "lon": 103.8318, "category": "shopping", "description": "Singapore's premier shopping street."},
+    {"name": "Singapore Zoo", "lat": 1.4043, "lon": 103.7930, "category": "park", "description": "Award-winning open-concept zoo."},
+    {"name": "Clarke Quay", "lat": 1.2906, "lon": 103.8466, "category": "food_experience", "description": "Riverside dining and nightlife district."}
+  ],
+  "Dubai": [
+    {"name": "Burj Khalifa", "lat": 25.1972, "lon": 55.2744, "category": "sightseeing", "description": "The world's tallest building with observation decks."},
+    {"name": "Dubai Mall", "lat": 25.1986, "lon": 55.2796, "category": "shopping", "description": "Massive mall with aquarium and ice rink."},
+    {"name": "Palm Jumeirah", "lat": 25.1124, "lon": 55.1390, "category": "sightseeing", "description": "Palm-shaped artificial archipelago."},
+    {"name": "Jumeirah Beach", "lat": 25.2318, "lon": 55.2648, "category": "beaches", "description": "White sand beach with Burj Al Arab views."},
+    {"name": "Dubai Marina", "lat": 25.0806, "lon": 55.1401, "category": "sightseeing", "description": "Glittering waterfront promenade."},
+    {"name": "Gold Souk", "lat": 25.2693, "lon": 55.2970, "category": "shopping", "description": "Traditional market for gold and jewelry."},
+    {"name": "Old Dubai Creek", "lat": 25.2667, "lon": 55.3167, "category": "sightseeing", "description": "Historic waterway with abra boat rides."},
+    {"name": "Desert Safari", "lat": 24.8968, "lon": 55.6218, "category": "adventure", "description": "Dune bashing, camel rides and desert camps."}
+  ],
+  "Istanbul": [
+    {"name": "Hagia Sophia", "lat": 41.0086, "lon": 28.9802, "category": "sightseeing", "description": "Byzantine cathedral turned mosque, now a museum."},
+    {"name": "Blue Mosque", "lat": 41.0054, "lon": 28.9768, "category": "sightseeing", "description": "Sultan Ahmed Mosque with blue tiles."},
+    {"name": "Topkapi Palace", "lat": 41.0115, "lon": 28.9833, "category": "sightseeing", "description": "Ottoman sultans' palace overlooking the Bosphorus."},
+    {"name": "Grand Bazaar", "lat": 41.0105, "lon": 28.9680, "category": "shopping", "description": "One of the largest covered markets in the world."},
+    {"name": "Galata Tower", "lat": 41.0256, "lon": 28.9742, "category": "sightseeing", "description": "Medieval tower with panoramic views."},
+    {"name": "Basilica Cistern", "lat": 41.0084, "lon": 28.9779, "category": "sightseeing", "description": "Ancient underground water reservoir."},
+    {"name": "Spice Bazaar", "lat": 41.0163, "lon": 28.9704, "category": "food_experience", "description": "Fragrant market of spices and Turkish delight."},
+    {"name": "Bosphorus Cruise", "lat": 41.0368, "lon": 28.9849, "category": "sightseeing", "description": "Boat trip between two continents."}
+  ],
+  "New York": [
+    {"name": "Statue of Liberty", "lat": 40.6892, "lon": -74.0445, "category": "sightseeing", "description": "Iconic symbol of freedom on Liberty Island."},
+    {"name": "Central Park", "lat": 40.7829, "lon": -73.9654, "category": "park", "description": "840-acre green oasis in Manhattan."},
+    {"name": "Times Square", "lat": 40.7580, "lon": -73.9855, "category": "sightseeing", "description": "The dazzling crossroads of the world."},
+    {"name": "Empire State Building", "lat": 40.7484, "lon": -73.9857, "category": "sightseeing", "description": "Art-deco skyscraper with observation decks."},
+    {"name": "Brooklyn Bridge", "lat": 40.7061, "lon": -73.9969, "category": "sightseeing", "description": "Historic suspension bridge with skyline views."},
+    {"name": "Metropolitan Museum of Art", "lat": 40.7794, "lon": -73.9632, "category": "museum", "description": "One of the world's largest art museums."},
+    {"name": "High Line", "lat": 40.7480, "lon": -74.0048, "category": "park", "description": "Elevated park built on a former rail line."},
+    {"name": "Museum of Modern Art", "lat": 40.7614, "lon": -73.9776, "category": "museum", "description": "Home of Van Gogh's Starry Night."}
+  ],
+  "London": [
+    {"name": "Big Ben & Houses of Parliament", "lat": 51.5007, "lon": -0.1246, "category": "sightseeing", "description": "Iconic clock tower and Gothic parliament."},
+    {"name": "Tower of London", "lat": 51.5081, "lon": -0.0759, "category": "sightseeing", "description": "Historic castle housing the Crown Jewels."},
+    {"name": "British Museum", "lat": 51.5194, "lon": -0.1270, "category": "museum", "description": "World-famous museum of human history."},
+    {"name": "Buckingham Palace", "lat": 51.5014, "lon": -0.1419, "category": "sightseeing", "description": "The King's official London residence."},
+    {"name": "London Eye", "lat": 51.5033, "lon": -0.1195, "category": "sightseeing", "description": "Giant observation wheel over the Thames."},
+    {"name": "Tate Modern", "lat": 51.5076, "lon": -0.0994, "category": "museum", "description": "Modern art in a former power station."},
+    {"name": "Camden Market", "lat": 51.5416, "lon": -0.1438, "category": "shopping", "description": "Edgy markets with food and fashion."},
+    {"name": "Hyde Park", "lat": 51.5073, "lon": -0.1657, "category": "park", "description": "Royal park with boating lake and gardens."}
+  ],
+  "Paris": [
+    {"name": "Eiffel Tower", "lat": 48.8584, "lon": 2.2945, "category": "sightseeing", "description": "The world-famous iron lattice tower."},
+    {"name": "Louvre Museum", "lat": 48.8606, "lon": 2.3376, "category": "museum", "description": "Home of the Mona Lisa in a royal palace."},
+    {"name": "Notre-Dame Cathedral", "lat": 48.8530, "lon": 2.3499, "category": "sightseeing", "description": "Gothic masterpiece on the Île de la Cité."},
+    {"name": "Sacré-Cœur Basilica", "lat": 48.8867, "lon": 2.3431, "category": "sightseeing", "description": "White-domed basilica atop Montmartre."},
+    {"name": "Champs-Élysées", "lat": 48.8698, "lon": 2.3076, "category": "shopping", "description": "The grandest avenue in Paris."},
+    {"name": "Musée d'Orsay", "lat": 48.8600, "lon": 2.3266, "category": "museum", "description": "Impressionist art in a former railway station."},
+    {"name": "Arc de Triomphe", "lat": 48.8738, "lon": 2.2950, "category": "sightseeing", "description": "Monument honoring those who fought for France."},
+    {"name": "Montmartre", "lat": 48.8867, "lon": 2.3431, "category": "sightseeing", "description": "Artists' quarter with village charm."}
+  ],
+  "Tokyo": [
+    {"name": "Shibuya Crossing", "lat": 35.6595, "lon": 139.7005, "category": "sightseeing", "description": "The world's busiest pedestrian scramble."},
+    {"name": "Tokyo Skytree", "lat": 35.7101, "lon": 139.8107, "category": "sightseeing", "description": "Towering broadcast tower with observation decks."},
+    {"name": "Senso-ji Temple", "lat": 35.7148, "lon": 139.7967, "category": "sightseeing", "description": "Tokyo's oldest temple in Asakusa."},
+    {"name": "Meiji Shrine", "lat": 35.6764, "lon": 139.6993, "category": "sightseeing", "description": "Peaceful Shinto shrine in a forested park."},
+    {"name": "Tokyo Tower", "lat": 35.6586, "lon": 139.7454, "category": "sightseeing", "description": "Iconic orange tower with city views."},
+    {"name": "Tsukiji Outer Market", "lat": 35.6654, "lon": 139.7707, "category": "food_experience", "description": "Street food paradise of fresh seafood."},
+    {"name": "Ueno Park", "lat": 35.7148, "lon": 139.7773, "category": "park", "description": "Green park with museums and cherry blossoms."},
+    {"name": "Akihabara", "lat": 35.6984, "lon": 139.7731, "category": "shopping", "description": "Electric town for anime and electronics."}
+  ],
+  "Bangkok": [
+    {"name": "Grand Palace", "lat": 13.7500, "lon": 100.4913, "category": "sightseeing", "description": "Dazzling royal palace complex."},
+    {"name": "Wat Arun", "lat": 13.7437, "lon": 100.4889, "category": "sightseeing", "description": "Temple of Dawn on the Chao Phraya river."},
+    {"name": "Wat Pho", "lat": 13.7464, "lon": 100.4890, "category": "sightseeing", "description": "Temple of the Reclining Buddha."},
+    {"name": "Chatuchak Market", "lat": 13.8000, "lon": 100.5500, "category": "shopping", "description": "The world's largest weekend market."},
+    {"name": "Khao San Road", "lat": 13.7588, "lon": 100.4979, "category": "food_experience", "description": "Backpacker hub of street food and bars."},
+    {"name": "Jim Thompson House", "lat": 13.7497, "lon": 100.5286, "category": "museum", "description": "Thai-style house of the silk legend."},
+    {"name": "Lumpini Park", "lat": 13.7308, "lon": 100.5400, "category": "park", "description": "Central park with lake and monitor lizards."},
+    {"name": "Siam Paragon", "lat": 13.7465, "lon": 100.5346, "category": "shopping", "description": "Luxury mall with an aquarium."}
+  ],
+  "Hong Kong": [
+    {"name": "Victoria Peak", "lat": 22.2750, "lon": 114.1456, "category": "sightseeing", "description": "Skyline viewpoint reached by the Peak Tram."},
+    {"name": "Star Ferry", "lat": 22.2870, "lon": 114.1720, "category": "sightseeing", "description": "Historic harbor ferry between Kowloon and the island."},
+    {"name": "Tsim Sha Tsui Promenade", "lat": 22.2944, "lon": 114.1719, "category": "sightseeing", "description": "Waterfront walk with skyline views."},
+    {"name": "Temple Street Night Market", "lat": 22.3045, "lon": 114.1710, "category": "shopping", "description": "Bustling night market of stalls and food."},
+    {"name": "Big Buddha", "lat": 22.2540, "lon": 113.9040, "category": "sightseeing", "description": "Giant bronze Buddha on Lantau Island."},
+    {"name": "Avenue of Stars", "lat": 22.2933, "lon": 114.1743, "category": "sightseeing", "description": "Waterfront tribute to Hong Kong cinema."},
+    {"name": "Repulse Bay", "lat": 22.2329, "lon": 114.1969, "category": "beaches", "description": "Scenic beach on the south side of the island."},
+    {"name": "Mong Kok", "lat": 22.3186, "lon": 114.1703, "category": "shopping", "description": "Electrifying shopping district."}
+  ],
+  "Seoul": [
+    {"name": "Gyeongbokgung Palace", "lat": 37.5796, "lon": 126.9770, "category": "sightseeing", "description": "The grandest of Seoul's five palaces."},
+    {"name": "N Seoul Tower", "lat": 37.5512, "lon": 126.9882, "category": "sightseeing", "description": "Observation tower on Namsan mountain."},
+    {"name": "Myeongdong", "lat": 37.5636, "lon": 126.9851, "category": "shopping", "description": "Buzzing shopping and street food district."},
+    {"name": "Bukchon Hanok Village", "lat": 37.5840, "lon": 126.9840, "category": "sightseeing", "description": "Traditional Korean houses between palaces."},
+    {"name": "Insadong", "lat": 37.5747, "lon": 126.9843, "category": "shopping", "description": "Street of traditional crafts and teahouses."},
+    {"name": "Hongdae", "lat": 37.5570, "lon": 126.9236, "category": "food_experience", "description": "Youthful quarter of cafes, clubs and street art."},
+    {"name": "Han River Park", "lat": 37.5283, "lon": 126.9330, "category": "park", "description": "Riverside park for picnics and cycling."},
+    {"name": "Gangnam", "lat": 37.4979, "lon": 127.0276, "category": "shopping", "description": "Upscale district of the K-pop fame."}
+  ],
+  "Kuala Lumpur": [
+    {"name": "Petronas Twin Towers", "lat": 3.1578, "lon": 101.7116, "category": "sightseeing", "description": "Iconic twin skyscrapers with sky bridge."},
+    {"name": "Batu Caves", "lat": 3.2374, "lon": 101.6839, "category": "sightseeing", "description": "Limestone caves with towering Hindu statues."},
+    {"name": "KL Tower", "lat": 3.1530, "lon": 101.7033, "category": "sightseeing", "description": "Telecommunications tower with city views."},
+    {"name": "Merdeka Square", "lat": 3.1482, "lon": 101.6945, "category": "sightseeing", "description": "Historic square where independence was declared."},
+    {"name": "Central Market", "lat": 3.1473, "lon": 101.6969, "category": "shopping", "description": "Art deco market of crafts and souvenirs."},
+    {"name": "Bukit Bintang", "lat": 3.1467, "lon": 101.7110, "category": "shopping", "description": "The city's main shopping and dining belt."},
+    {"name": "KLCC Park", "lat": 3.1552, "lon": 101.7119, "category": "park", "description": "Lush park at the base of the Petronas Towers."},
+    {"name": "Jalan Alor", "lat": 3.1458, "lon": 101.7088, "category": "food_experience", "description": "Famous hawker street food lane."}
+  ],
+  "Prague": [
+    {"name": "Charles Bridge", "lat": 50.0865, "lon": 14.4114, "category": "sightseeing", "description": "Medieval bridge lined with statues."},
+    {"name": "Prague Castle", "lat": 50.0913, "lon": 14.4013, "category": "sightseeing", "description": "The largest ancient castle complex in the world."},
+    {"name": "Old Town Square", "lat": 50.0875, "lon": 14.4212, "category": "sightseeing", "description": "Historic square with the Astronomical Clock."},
+    {"name": "St. Vitus Cathedral", "lat": 50.0906, "lon": 14.4005, "category": "sightseeing", "description": "Gothic cathedral within Prague Castle."},
+    {"name": "Wenceslas Square", "lat": 50.0816, "lon": 14.4275, "category": "shopping", "description": "Wide boulevard of shops and history."},
+    {"name": "Josefov (Jewish Quarter)", "lat": 50.0901, "lon": 14.4195, "category": "museum", "description": "Preserved Jewish quarter with synagogues."},
+    {"name": "Petřín Hill", "lat": 50.0837, "lon": 14.3951, "category": "park", "description": "Green hill with a mini Eiffel tower."},
+    {"name": "Mala Strana", "lat": 50.0886, "lon": 14.4045, "category": "sightseeing", "description": "Charming Lesser Town below the castle."}
+  ],
+  "Antalya": [
+    {"name": "Kaleiçi (Old Town)", "lat": 36.8862, "lon": 30.7045, "category": "sightseeing", "description": "Ottoman-era old town with marina."},
+    {"name": "Hadrian's Gate", "lat": 36.8868, "lon": 30.7086, "category": "sightseeing", "description": "Triumphal arch from 130 AD."},
+    {"name": "Düden Waterfalls", "lat": 36.9078, "lon": 30.7900, "category": "park", "description": "Waterfalls plunging into the sea."},
+    {"name": "Konyaaltı Beach", "lat": 36.8733, "lon": 30.6500, "category": "beaches", "description": "Long pebble beach with mountain views."},
+    {"name": "Antalya Museum", "lat": 36.8860, "lon": 30.6794, "category": "museum", "description": "Outstanding archaeology museum."},
+    {"name": "Aspendos", "lat": 36.9384, "lon": 31.1720, "category": "sightseeing", "description": "Best-preserved Roman theater in the world."},
+    {"name": "Perge", "lat": 36.9619, "lon": 30.8541, "category": "sightseeing", "description": "Ancient Pamphylian city ruins."},
+    {"name": "Lara Beach", "lat": 36.8456, "lon": 30.8244, "category": "beaches", "description": "Golden beach dotted with resorts."}
+  ]
+}

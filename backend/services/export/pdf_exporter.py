@@ -93,6 +93,7 @@ class PdfExporter(ExportAdapter):
 
         budget_text = (
             f"<b>Total Budget:</b> {total_budget_val} {trip_data.get('currency', 'USD')}<br/>"
+            f"<b>Suggested Total Budget:</b> {budget_info.get('suggestedtotalbudget', '—')} {trip_data.get('currency', 'USD')}<br/>"
             f"<b>Comfort Level:</b> {budget_info.get('comfortlevel', 'Moderate')}<br/>"
             f"<b>Daily Budget Score:</b> {budget_info.get('score', 5.0)} / 10.0<br/>"
             f"<b>Average Daily Budget:</b> {budget_info.get('dailybudget', 150.0)} {trip_data.get('currency', 'USD')}<br/>"

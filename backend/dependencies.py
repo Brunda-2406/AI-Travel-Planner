@@ -33,8 +33,10 @@ def get_current_user(request: Request, token: str = Depends(oauth2_scheme), db: 
         email: str = payload.get("sub")
         if email is None:
             return get_guest_user()
-            
-        user = db.query(User).filter(User.email == email).first()
+
+        # Case-insensitive lookup so older mixed-case tokens still resolve
+        from sqlalchemy import func
+        user = db.query(User).filter(func.lower(User.email) == email.lower()).first()
         if user is None:
             return get_guest_user()
         return user

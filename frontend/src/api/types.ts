@@ -33,13 +33,19 @@ export interface TripDay {
     precipitationchance: number;
   };
   route?: Array<{ lat: number; lng: number; label: string }>;
+  route_geometry?: Array<{ lat: number; lng: number }>;
+  route_alternative?: Array<{ lat: number; lng: number }>;
+  route_distance_km?: number;
+  route_duration_min?: number;
   activities: Activity[];
 }
 
 export interface BudgetInfo {
   score: number;
   comfortlevel: string;
+  totalbudget?: number;
   dailybudget: number;
+  dailybudgetperperson?: number;
   currency: string;
   allocation: {
     accommodation: number;
@@ -49,6 +55,9 @@ export interface BudgetInfo {
     emergencybuffer: number;
   };
   warnings: string[];
+  destinationcostestimate?: number;
+  suggesteddailybudget?: number;
+  suggestedtotalbudget?: number;
 }
 
 export interface RouteSummary {
@@ -77,6 +86,7 @@ export interface GenerateResponse {
   missingfields?: string[];
   planningstate?: any;
   sessionid?: string;
+  tripid?: number | null;
   trip?: Trip;
   budget?: BudgetInfo;
   routesummary?: RouteSummary;

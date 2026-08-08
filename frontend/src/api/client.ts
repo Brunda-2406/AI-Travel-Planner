@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://127.0.0.1:8001/api";
+// Relative URL — in dev, Vite proxies /api to the FastAPI backend (see vite.config.js),
+// so the app works from any port without CORS issues. In production, set VITE_API_URL.
+const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

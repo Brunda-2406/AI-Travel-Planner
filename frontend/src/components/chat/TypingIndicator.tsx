@@ -2,10 +2,18 @@ import React from "react";
 
 export const TypingIndicator: React.FC = () => {
   return (
-    <div className="flex justify-start mb-4">
-      <div className="flex items-center space-x-2 bg-gray-100 border border-gray-200 p-4 rounded-3xl rounded-tl-none max-w-[80%] text-sm">
-        <span className="text-base">🤖</span>
-        <span className="text-gray-500 font-medium animate-pulse">Typing...</span>
+    <div className="flex items-end gap-2.5">
+      <span className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-ocean-500 text-white text-sm flex items-center justify-center shadow-soft shrink-0">
+        ✨
+      </span>
+      <div className="bg-white border border-slate-100 px-4 py-3.5 rounded-2xl rounded-bl-md shadow-soft flex items-center gap-1.5">
+        {[0, 1, 2].map((i) => (
+          <span
+            key={i}
+            className="w-2 h-2 rounded-full bg-brand-400 animate-bounce"
+            style={{ animationDelay: `${i * 0.15}s` }}
+          />
+        ))}
       </div>
     </div>
   );

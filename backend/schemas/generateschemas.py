@@ -8,3 +8,4 @@ class GenerateRequest(BaseModel):
     history: Optional[List[Dict[str, Any]]] = None
     itinerary: Optional[Dict[str, Any]] = None
     tripid: Optional[int] = None
+    currency: Optional[str] = None  # locked by the UI once chosen

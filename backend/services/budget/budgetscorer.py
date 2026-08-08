@@ -1,5 +1,6 @@
 from typing import Dict, Any, List
 import logging
+from ..currency import to_usd_sync, from_usd_sync
 
 logger = logging.getLogger("budget_scorer")
 
@@ -25,59 +26,42 @@ DESTINATION_COST_ESTIMATES = {
     "switzerland": 260.0
 }
 
-EXCHANGE_RATES_TO_1_USD = {
-    "USD": 1.0,
-    "EUR": 0.92,
-    "GBP": 0.78,
-    "INR": 83.5,
-    "JPY": 156.0,
-    "CAD": 1.37,
-    "AUD": 1.50,
-    "CHF": 0.89,
-    "CNY": 7.25,
-    "SGD": 1.35,
-    "NZD": 1.63,
-    "KRW": 1375.0,
-    "AED": 3.67,
-    "ZAR": 18.5,
-    "RUB": 89.0,
-    "TRY": 32.5,
-    "BRL": 5.3,
-    "HKD": 7.8,
-    "MXN": 18.2,
-    "DKK": 6.9,
-    "PLN": 4.0,
-    "TWD": 32.3,
-    "THB": 36.5,
-    "SEK": 10.5,
-    "NOK": 10.6,
-    "MYR": 4.70,
-    "IDR": 16000.0,
-    "PHP": 58.5,
-    "VND": 25400.0,
-    "ILS": 3.75,
-}
-
 class BudgetScorer:
     @staticmethod
-    def score(budget: float, currency: str, days: int, travelers: int, destination: str) -> Dict[str, Any]:
+    def _daily_cost_estimate(destination: str) -> float:
+        """Typical per-person daily cost (USD) for a destination; falls back to a generic estimate."""
         dest_key = destination.lower().strip()
-        daily_cost_estimate = 120.0  # Default fallback
-        
         for k, v in DESTINATION_COST_ESTIMATES.items():
             if k in dest_key:
-                daily_cost_estimate = v
-                break
+                return v
+        return 120.0  # Default fallback
+
+    @staticmethod
+    def suggest(destination: str, days: int, travelers: int, currency: str) -> Dict[str, Any]:
+        """Suggested comfortable budget (per day + overall trip) for the whole group,
+        based on the destination's typical daily cost, converted into the user's currency."""
+        total_days = max(1, days)
+        total_travelers = max(1, travelers)
+        daily_cost_estimate = BudgetScorer._daily_cost_estimate(destination)
+        suggested_daily_usd = daily_cost_estimate * total_travelers
+        suggested_daily = from_usd_sync(suggested_daily_usd, currency)
+        return {
+            "destinationcostestimate": daily_cost_estimate,
+            "suggesteddailybudget": round(suggested_daily, 2),
+            "suggestedtotalbudget": round(suggested_daily * total_days, 2),
+        }
+
+    @staticmethod
+    def score(budget: float, currency: str, days: int, travelers: int, destination: str) -> Dict[str, Any]:
+        daily_cost_estimate = BudgetScorer._daily_cost_estimate(destination)
 
         total_days = max(1, days)
         total_travelers = max(1, travelers)
         daily_budget = budget / total_days
         daily_budget_per_person = daily_budget / total_travelers
 
-        # Convert daily budget per person to USD for accurate scoring
-        curr_upper = currency.upper().strip()
-        rate = EXCHANGE_RATES_TO_1_USD.get(curr_upper, 1.0)
-        daily_budget_per_person_usd = daily_budget_per_person / rate
+        # Convert daily budget per person to USD for accurate scoring (ANY currency)
+        daily_budget_per_person_usd = to_usd_sync(daily_budget_per_person, currency)
 
         # Score calculation: 1.0 ratio = 5.0 score, 2.0 ratio = 10.0 score
         base_score = (daily_budget_per_person_usd / daily_cost_estimate) * 5.0
@@ -108,12 +92,19 @@ class BudgetScorer:
         if daily_budget_per_person < (daily_cost_estimate * 0.4):
             warnings.append("Accommodation budget may be tight for central hotels.")
 
+        suggestion = BudgetScorer.suggest(destination, total_days, total_travelers, currency)
+
         return {
             "score": score,
             "comfortlevel": comfort_level,
+            "totalbudget": budget,
             "dailybudget": round(daily_budget, 2),
+            "dailybudgetperperson": round(daily_budget_per_person, 2),
             "currency": currency,
             "tripdurationdays": total_days,
             "allocation": allocations,
-            "warnings": warnings
+            "warnings": warnings,
+            "destinationcostestimate": suggestion["destinationcostestimate"],
+            "suggesteddailybudget": suggestion["suggesteddailybudget"],
+            "suggestedtotalbudget": suggestion["suggestedtotalbudget"]
         }

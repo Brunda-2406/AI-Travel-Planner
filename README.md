@@ -21,38 +21,62 @@ The project is structured into two main applications:
 
 ## 🚀 Getting Started
 
-### Backend Setup
+### One-command launch (recommended)
 
-1. Navigate to the `backend` directory:
-   ```bash
-   cd backend
-   ```
-2. Create a virtual environment and install dependencies:
+Start the **entire stack** — local LLM, backend and frontend — with a single command from the project root. Works in VS Code, Cursor, or any terminal:
+
+```bash
+npm start
+# or
+npm run dev
+```
+
+This launches, in order:
+1. **Ollama** (local LLM server) → http://localhost:11434 — auto-started if not already running
+2. **Backend** → http://127.0.0.1:8001 (FastAPI + Uvicorn)
+3. **Frontend** → http://localhost:5173 (Vite + React)
+
+The launcher automatically finds the project virtual environment (`.venv`) and the Ollama binary on Windows, macOS and Linux. If Ollama is already running, it is reused and not started twice.
+
+### AI engine (optional)
+
+The chatbot uses a local Ollama model (Qwen3 8B) for intent detection and itinerary generation. Install [Ollama](https://ollama.com) and pull the model once:
+
+```bash
+npm run setup:model   # equivalent to: ollama pull qwen3:8b
+```
+
+`npm start` verifies the model is pulled and prints a reminder if it's missing. If Ollama is unavailable, the app gracefully falls back to rule-based parsing and real OpenStreetMap place data — no hallucinations, no invented landmarks.
+
+### Manual setup
+
+#### Backend
+
+1. Create a virtual environment and install dependencies:
    ```bash
    python -m venv .venv
    source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
-   pip install -r requirements.txt
+   pip install -r backend/requirements.txt
    ```
-3. Set up environment variables (create a `.env` file based on your configuration).
-4. Run the FastAPI development server:
+2. (Optional) Copy `backend/.env.example` to `backend/.env` and add API keys for richer maps/weather data. The app works without keys using free OpenStreetMap fallbacks.
+3. Run the FastAPI development server:
    ```bash
-   uvicorn app:app --reload
+   python -m uvicorn backend.main:app --reload --port 8001
    ```
 
-### Frontend Setup
+#### Frontend
 
-1. Navigate to the `frontend` directory:
+1. Install the necessary NPM packages:
    ```bash
    cd frontend
-   ```
-2. Install the necessary NPM packages:
-   ```bash
    npm install
    ```
-3. Start the Vite development server:
+2. Start the Vite development server:
    ```bash
    npm run dev
    ```
+
+
 
 ## 🛠️ Tech Stack
 

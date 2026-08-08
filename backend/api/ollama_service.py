@@ -11,9 +11,9 @@ import re
 # -------------------------------
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-# Default to a llama model; can be overridden with env var OLLAMA_MODEL
+# Default to a Qwen3 model; can be overridden with env var OLLAMA_MODEL
 import os
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3:8b")
 USE_OLLAMA = os.getenv("USE_OLLAMA", "0").lower() in {"1", "true", "yes"}
 
 # -------------------------------
@@ -33,7 +33,8 @@ def _call_ollama(prompt: str) -> str:
             json={
                 "model": OLLAMA_MODEL,
                 "prompt": prompt,
-                "stream": False
+                "stream": False,
+                "think": False,  # qwen3 outputs thinking tokens by default; disable for clean JSON
             },
             timeout=120
         )

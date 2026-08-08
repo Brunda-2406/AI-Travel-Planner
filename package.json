@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "concurrently \"d:/Projects/AI-Travel-Planner/.venv\\Scripts\\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8001 --reload\" \"cd frontend && npm run dev\""
-  },
-  "devDependencies": {
-    "concurrently": "^8.0.0"
+    "start": "node scripts/start.js",
+    "dev": "node scripts/start.js",
+    "setup:model": "ollama pull qwen3:8b",
+    "dev:backend": "python -m uvicorn backend.main:app --host 127.0.0.1 --port 8001 --reload",
+    "dev:frontend": "cd frontend && npm run dev"
   }
 }

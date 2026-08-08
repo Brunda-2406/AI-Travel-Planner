@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { Button } from "../ui/Button";
 
 interface LoginFormProps {
   onSuccess?: () => void;
   onToggleRegister?: () => void;
 }
 
+const inputClass =
+  "w-full pl-11 pr-11 py-3 rounded-2xl border border-slate-200 bg-slate-50/60 focus:bg-white focus:ring-4 focus:ring-brand-100 focus:border-brand-400 outline-none transition-all duration-200 text-sm font-medium placeholder:text-slate-400";
+
 export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess, onToggleRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { login, error, loading } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,51 +25,101 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess, onToggleRegiste
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/20 max-w-md w-full">
-      <h2 className="text-3xl font-extrabold text-gray-800 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-        Welcome Back
-      </h2>
+    <div>
+      <div className="mb-8">
+        <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink">
+          Welcome back 👋
+        </h2>
+        <p className="mt-2 text-sm text-slate-500 font-medium">
+          Sign in to pick up where you left off.
+        </p>
+      </div>
+
       {error && (
-        <div className="bg-red-50 text-red-600 p-3 rounded-xl mb-4 text-sm border border-red-100">
-          ⚠️ {error}
+        <div className="mb-5 flex items-start gap-2.5 bg-red-50 text-red-700 p-3.5 rounded-2xl text-sm font-semibold border border-red-100 animate-fade-in-up">
+          <span className="shrink-0">⚠️</span>
+          {error}
         </div>
       )}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-600 mb-1">Email Address</label>
-          <input
-            type="email"
-            required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all duration-300"
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <label className="block text-xs font-extrabold text-slate-600 uppercase tracking-wider mb-2">
+            Email address
+          </label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </span>
+            <input
+              type="email"
+              required
+              className={inputClass}
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
         </div>
+
         <div>
-          <label className="block text-sm font-semibold text-gray-600 mb-1">Password</label>
-          <input
-            type="password"
-            required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all duration-300"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <label className="block text-xs font-extrabold text-slate-600 uppercase tracking-wider mb-2">
+            Password
+          </label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </span>
+            <input
+              type={showPassword ? "text" : "password"}
+              required
+              className={inputClass}
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-brand-600 transition-colors cursor-pointer"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+                  <line x1="2" x2="22" y1="2" y2="22" />
+                </svg>
+              ) : (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-50"
-        >
-          {loading ? "Signing in..." : "Sign In"}
-        </button>
+
+        <Button type="submit" size="lg" loading={loading} className="w-full mt-2">
+          {loading ? "Signing in…" : "Sign In"}
+        </Button>
       </form>
+
       {onToggleRegister && (
-        <p className="mt-4 text-center text-sm text-gray-500">
+        <p className="mt-6 text-center text-sm text-slate-500 font-medium">
           Don't have an account?{" "}
-          <button onClick={onToggleRegister} className="text-blue-600 font-semibold hover:underline">
-            Register
+          <button
+            onClick={onToggleRegister}
+            className="text-brand-600 font-extrabold hover:text-brand-700 hover:underline transition-colors cursor-pointer"
+          >
+            Create one free
           </button>
         </p>
       )}

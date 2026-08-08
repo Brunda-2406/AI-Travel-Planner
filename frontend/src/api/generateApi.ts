@@ -7,7 +7,8 @@ export async function generate(
   planningstate?: any,
   history?: any[],
   itinerary?: any,
-  tripid?: number | null
+  tripid?: number | null,
+  currency?: string
 ): Promise<GenerateResponse> {
   const res = await apiClient.post<GenerateResponse>("/generate", {
     message,
@@ -15,13 +16,44 @@ export async function generate(
     planningstate,
     history,
     itinerary,
-    tripid
+    tripid,
+    currency
   });
   return res.data;
 }
 
 export async function chatEdit(tripid: number, message: string): Promise<any> {
   const res = await apiClient.post("/chat-edit", { tripid, message });
+  return res.data;
+}
+
+export interface RecommendedPlace {
+  name: string;
+  category: string;
+  coordinates: { lat: number; lng: number };
+  openinghours?: string | null;
+  description?: string;
+  estimatedcost?: number;
+  estimateddurationminutes?: number;
+}
+
+export async function recommendPlaces(
+  destination: string,
+  interests: string[] = [],
+  count: number = 30,
+  currency: string = "USD"
+): Promise<{ status: string; places: RecommendedPlace[]; currency?: string }> {
+  const res = await apiClient.post("/recommend", { destination, interests, count, currency });
+  return res.data;
+}
+
+export async function addPlaceToTrip(payload: {
+  tripid?: number | null;
+  itinerary?: any;
+  day: number;
+  place: RecommendedPlace;
+}): Promise<any> {
+  const res = await apiClient.post("/add-place", payload);
   return res.data;
 }
 

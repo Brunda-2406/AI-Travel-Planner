@@ -29,9 +29,19 @@ from .api.weather_service import get_weather_forecast
 
 app = FastAPI(title="AI Travel Assistant - Production Platform", debug=settings.DEBUG)
 
+import asyncio
+from .services.currency import CurrencyService
+
+
+@app.on_event("startup")
+async def _warm_currency_rates():
+    """Fetch live exchange rates in the background so any world currency works."""
+    asyncio.create_task(CurrencyService.refresh_rates())
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",  # any local dev port
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
